@@ -11,7 +11,7 @@ pipeline {
       steps {
         withCredentials([string(credentialsId: 'sonar-token', variable: 'SONAR_TOKEN')]) {
           sh '''
-            mvn sonar:sonar \
+            mvn org.sonarsource.scanner.maven:sonar-maven-plugin:sonar \
               -Dsonar.projectKey=fleetman-position-simulator \
               -Dsonar.host.url=http://192.168.56.10:9000 \
               -Dsonar.token=$SONAR_TOKEN
